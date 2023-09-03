@@ -1,0 +1,25 @@
+### Random
+GET http://127.0.0.1:8080/v1/jokes/random
+
+### Search
+GET http://127.0.0.1:8080/v1/jokes/search?query=java
+
+### Search2
+GET http://127.0.0.1:8080/v1/jokes/search?query=script
+
+### Category
+GET http://127.0.0.1:8080/v1/jokes/category?category=dark
+
+### Wrong Category
+GET http://127.0.0.1:8080/v1/jokes/category?category=dark1
+
+### See cache of randomJokes
+GET http://127.0.0.1:8080/cache/randomJokes
+
+### See cache of jokesByCategory
+GET http://127.0.0.1:8080/cache/jokesByCategory
+
+### See cache of jokesByQuery
+GET http://127.0.0.1:8080/cache/jokesByQuery
+
+
