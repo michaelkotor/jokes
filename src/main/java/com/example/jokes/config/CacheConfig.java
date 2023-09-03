@@ -23,7 +23,7 @@ public class CacheConfig {
     public CaffeineCache cacheRandomJokes() {
         return new CaffeineCache(JOKES_RANDOM_CACHE,
                 Caffeine.newBuilder()
-                        .expireAfterAccess(5, TimeUnit.SECONDS)
+                        .expireAfterWrite(5, TimeUnit.SECONDS)
                         .build());
     }
 
