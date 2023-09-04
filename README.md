@@ -2,42 +2,36 @@
 
 The service contains three endpoints for receiving jokes.
 
-### Getting starting
+## Getting Started
 
-There are different ways how to run the app:
+There are different ways to run the app:
 
- - `docker-compose up -build` - via docker-compose, the dockerfile will
-be build and run locally on port 8080.
- - Via IntelliJ Idea, run `JokerApplication`
- - `./gradlew bootRun` - via CLI, the app will start on port 8080
+- `docker-compose up --build` - via docker-compose, the dockerfile will be built and run locally on port 8080.
+- Via IntelliJ Idea, run `JokerApplication`.
+- `./gradlew bootRun` - via CLI, the app will start on port 8080.
 
-### Actions
+## Actions
 
-When the app will run, you can trigger `jokes.http` via IDE, it will 
-trigger endpoints.
+When the app is running, you can trigger `jokes.http` via your IDE to interact with the endpoints.
 
-There are dedicated endpoint to see what is inside current cache.
+There is a dedicated endpoint to view the current cache contents.
 
-### Assumptions
+## Assumptions
 
- - Different APIs provide different results and structures, that is why I had
-to simplify their responses. For example, only one joke will be returned.
-Because of that, I could omit pagination.
- - I chose the simplest rate limiter implementation
- - I didn't test failing external API or 429 code as it was a bit too much requests
- - I didn't introduce database, even it would increase number of users to handle
+- Different APIs provide different results and structures, which is why I had to simplify their responses. For example, only one joke will be returned, simplifying the need for pagination.
+- I chose the simplest rate limiter implementation.
+- I didn't extensively test failing external APIs or handle HTTP 429 (Too Many Requests) codes, as it involved a considerable number of requests.
+- I didn't introduce a database, even though it would increase the number of users the service can handle.
 
-### What could be done else?
+## What Could Be Done Differently?
 
-There are a lot of things :)
+There are numerous potential improvements:
 
- - There are two implementations of Joker client, Chuck Norris was
-unstable during the development, so it is not 100% tested and deprecated.
- - Some values could be extracted to properties
- - Cache can be configured as external (now it is in-memory)
- - API exception to 429 code is not handled, but it as a general exception
- - Swagger/Swagger UI could be added
- - Rate limiter is added only to one endpoint, but could be easier added
-to other endpoints.
- - Cucumber tests are written via JUnit 4
- - Unit tests could be added
+- There are two implementations of the Joker client, with the Chuck Norris API being unstable during development and not thoroughly tested; it's now deprecated.
+- Some values could be extracted into properties for easier configuration.
+- The cache can be configured as external (currently it is in-memory).
+- Handling API exceptions and HTTP 429 codes is not implemented, but it should be handled as a general exception.
+- Swagger/Swagger UI could be added for API documentation and testing.
+- The rate limiter is added only to one endpoint, but it could be more easily added to other endpoints.
+- Cucumber tests are written using JUnit 4; consider updating them to a more recent version.
+- Additional unit tests could be added to improve test coverage.
